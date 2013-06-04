@@ -45,3 +45,6 @@ gem 'bootstrap-sass'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'gettext_i18n_rails'
+gem 'gettext', '>=1.9.3', :require => false, :group => :development

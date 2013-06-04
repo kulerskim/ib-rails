@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang='<%=I18n.locale%>' dir='<%=I18n.rtl? ? 'rtl' : 'ltr'%>'>
+<%FastGettext.available_locales.each do |locale|%>
+    <a data-no-turbolink href='?locale=<%=locale%>'><%=locale%></a> |
+<%end%>
+
 <head>
   <title>IbRails</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
