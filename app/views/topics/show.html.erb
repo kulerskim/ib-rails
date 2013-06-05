@@ -17,7 +17,8 @@
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Add reply', new_topic_reply_path(@topic)%> |
-<%= link_to 'Back', topics_path %>
+<%= link_to 'Back', topics_path %> |
+<%= link_to 'Download XLSX', topic_path(@topic, :format=>:xlsx) %>
 
 <% @topic.replies.each do |reply| %>
     <p><%=reply.content%></p>
