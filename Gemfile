@@ -16,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -48,3 +48,4 @@ gem 'bootstrap-sass'
 
 gem 'gettext_i18n_rails'
 gem 'gettext', '>=1.9.3', :require => false, :group => :development
+gem "axlsx", "~> 1.3.6"

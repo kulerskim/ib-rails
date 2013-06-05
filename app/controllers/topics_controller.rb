@@ -10,6 +10,11 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json
+      format.xlsx
+    end
   end
 
   # GET /topics/new
