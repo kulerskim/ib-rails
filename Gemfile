@@ -52,3 +52,4 @@ gem "axlsx", "~> 1.3.6"
 gem "tinymce-rails", "~> 3.5.8.2"
 
 gem "pusher"
+gem "pusher-rails"

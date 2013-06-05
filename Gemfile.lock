@@ -73,6 +73,7 @@ GEM
     pusher (0.11.3)
       multi_json (~> 1.0)
       signature (~> 0.1.6)
+    pusher-rails (0.0.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -148,6 +149,7 @@ DEPENDENCIES
   jbuilder (~> 1.0.1)
   jquery-rails
   pusher
+  pusher-rails
   rails (= 4.0.0.rc1)
   sass-rails (~> 4.0.0.rc1)
   sdoc

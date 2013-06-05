@@ -3,17 +3,25 @@
 <h1><%= @topic.title %></h1>
 <p class='muted text-right'><%= @topic.created_by %></p>
 <p>
-  <%= @topic.content %>
+  <%= @topic.content.html_safe %>
 </p>
 <div class='btn-group'>
   <%= link_to 'Add reply', new_topic_reply_path(@topic), class: 'btn btn-primary'%> |
   <%= link_to 'Download XLSX', topic_path(@topic, :format=>:xlsx), class: 'btn' %>
   <%= link_to 'Back', topics_path, class: 'btn' %>
 </div>
-
-<% @topic.replies.each do |reply| %>
+<div class='replies'>
+<% @topic.replies.reverse.each do |reply| %>
     <article class='reply'>
-      <p class='muted text-right'><%=_("Created by #{reply.created_by} on #{reply.created_at}")%></p>
+      <!--<p class='muted text-right'><%=_("Created by #{reply.created_by} on #{reply.created_at}")%></p>-->
       <%= reply.content.html_safe %>
     </article>
 <% end %>
+</div>
+<script>
+    var pusher = new Pusher('1bf22438f25509d64e77')
+    var channel = pusher.subscribe('<%="topic_#{@topic.id}"%>')
+    channel.bind('reply', function(data){
+        $('<article/>').addClass('reply').html(data.message.content).prependTo('.replies')
+        })
+</script>
