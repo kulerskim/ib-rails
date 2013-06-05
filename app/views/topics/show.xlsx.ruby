@@ -7,7 +7,7 @@ wb.styles do |style|
     sheet.add_row([@topic.title], :style => [cell_rotated_text_style])
 
     @topic.replies.each do |reply|
-      sheet.add_row [reply.content, reply.created_at, reply.created_by.name]
+      sheet.add_row [ ActionController::Base.helpers.strip_tags(reply.content), reply.created_at, reply.created_by.name]
     end
 
     sheet.sheet_view.pane do |pane|
