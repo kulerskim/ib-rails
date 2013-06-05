@@ -5,45 +5,17 @@ class RepliesControllerTest < ActionController::TestCase
     @reply = replies(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:replies)
-  end
-
   test "should get new" do
-    get :new
+    get :new, :topic_id => @reply.topic_id
     assert_response :success
   end
 
   test "should create reply" do
     assert_difference('Reply.count') do
-      post :create, reply: { content: @reply.content, created_by_id: @reply.created_by_id, topic_id: @reply.topic_id }
+      post :create, :topic_id => @reply.topic_id, reply: { content: @reply.content }
     end
 
-    assert_redirected_to reply_path(assigns(:reply))
+    assert_redirected_to topic_path(assigns(:reply).topic)
   end
 
-  test "should show reply" do
-    get :show, id: @reply
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @reply
-    assert_response :success
-  end
-
-  test "should update reply" do
-    patch :update, id: @reply, reply: { content: @reply.content, created_by_id: @reply.created_by_id, topic_id: @reply.topic_id }
-    assert_redirected_to reply_path(assigns(:reply))
-  end
-
-  test "should destroy reply" do
-    assert_difference('Reply.count', -1) do
-      delete :destroy, id: @reply
-    end
-
-    assert_redirected_to replies_path
-  end
 end

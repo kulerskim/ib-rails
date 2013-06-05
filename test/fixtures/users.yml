@@ -1,9 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  language: MyString
-
-two:
-  name: MyString
-  language: MyString
+testowy:
+  name: Jan Testowy
+  language: he

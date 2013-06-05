@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   end
 
   def self.default
-    User.find(1)
+    User.first
   end
 end

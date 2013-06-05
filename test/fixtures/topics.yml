@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  content: MyText
-  created_by_id: 
+  title: Title
+  content: Content
+  created_by: testowy
 
 two:
-  title: MyString
-  content: MyText
-  created_by_id: 
+  title: Another title
+  content: Some more content
+  created_by: testowy
