@@ -30,6 +30,8 @@ class RepliesController < ApplicationController
     @reply.topic = topic
     @reply.created_by = User.default
 
+    Pusher['test_channel'].trigger('my_event', {:message => 'hello world'})
+
     respond_to do |format|
       if @reply.save
         format.html { redirect_to topic, notice: 'Reply was successfully created.' }
