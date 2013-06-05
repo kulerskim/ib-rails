@@ -1,18 +1,38 @@
 <!DOCTYPE html>
-<html lang='<%=I18n.locale%>' dir='<%=I18n.rtl? ? 'rtl' : 'ltr'%>'>
-<%FastGettext.available_locales.each do |locale|%>
-    <a data-no-turbolink href='?locale=<%=locale%>'><%=locale%></a> |
-<%end%>
-
+<html lang='<%= I18n.locale %>' dir='<%= I18n.rtl? ? 'rtl' : 'ltr' %>'>
 <head>
   <title>IbRails</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="#">Ideablog Rails</a>
 
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="active"><%= link_to 'Topics', topics_path %></li>
+        </ul>
+      </div>
+
+      <%= render "layouts/language" %>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= yield %>
+</div>
+<!-- /container -->
 </body>
 </html>

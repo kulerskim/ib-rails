@@ -49,3 +49,4 @@ gem 'bootstrap-sass'
 gem 'gettext_i18n_rails'
 gem 'gettext', '>=1.9.3', :require => false, :group => :development
 gem "axlsx", "~> 1.3.6"
+gem "tinymce-rails", "~> 3.5.8.2"

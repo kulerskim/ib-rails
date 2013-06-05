@@ -11,10 +11,11 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :class => "tinymce"%>
+    <%= tinymce %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn' %>
+    <%= link_to 'Back', back_path, class: 'btn'%>
   </div>
 <% end %>

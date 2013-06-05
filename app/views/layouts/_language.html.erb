@@ -1,0 +1,5 @@
+<div class='btn-group ib-languages'>
+  <% FastGettext.available_locales.each do |locale| %>
+      <a class='btn btn-small btn-info' data-no-turbolink href='?locale=<%= locale %>'><%= locale %></a>
+  <% end %>
+</div>

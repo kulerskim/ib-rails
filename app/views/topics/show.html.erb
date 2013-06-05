@@ -1,25 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @topic.title %></h1>
+<p class='muted text-right'><%= @topic.created_by %></p>
 <p>
-  <strong>Title:</strong>
-  <%= @topic.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
   <%= @topic.content %>
 </p>
-
-<p>
-  <strong>Created by:</strong>
-  <%= @topic.created_by %>
-</p>
-
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Add reply', new_topic_reply_path(@topic)%> |
-<%= link_to 'Back', topics_path %> |
-<%= link_to 'Download XLSX', topic_path(@topic, :format=>:xlsx) %>
+<div class='btn-group'>
+  <%= link_to 'Add reply', new_topic_reply_path(@topic), class: 'btn btn-primary'%> |
+  <%= link_to 'Download XLSX', topic_path(@topic, :format=>:xlsx), class: 'btn' %>
+  <%= link_to 'Back', topics_path, class: 'btn' %>
+</div>
 
 <% @topic.replies.each do |reply| %>
-    <p><%=reply.content%></p>
+    <article class='reply'>
+      <p class='muted text-right'><%=_("Created by #{reply.created_by} on #{reply.created_at}")%></p>
+      <%= reply.content.html_safe %>
+    </article>
 <% end %>

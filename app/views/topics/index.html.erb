@@ -1,14 +1,10 @@
 <h1><%=_('Listing topics')%></h1>
 
-<table>
+<table class='table'>
   <thead>
     <tr>
       <th>Title</th>
-      <th>Content</th>
-      <th>Created by</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Options</th>
     </tr>
   </thead>
 
@@ -16,16 +12,13 @@
     <% @topics.each do |topic| %>
       <tr>
         <td><%= topic.title %></td>
-        <td><%= topic.content %></td>
-        <td><%= topic.created_by %></td>
-        <td><%= link_to 'Show', topic %></td>
-        <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+            <%= link_to 'Show', topic, class: 'btn btn-mini' %>
+            <%= link_to 'Edit', edit_topic_path(topic), class: 'btn btn-mini' %>
+            <%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Topic', new_topic_path %>
+<%= link_to 'New Topic', new_topic_path, class: 'btn btn-primary' %>

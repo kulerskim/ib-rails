@@ -1,5 +1,3 @@
-<h1>New reply</h1>
+<h1>New reply to <%=@topic.title%></h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', @topic %>
+<%= render 'form', :back_path=>(topic_path @topic) %>
