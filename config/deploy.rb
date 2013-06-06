@@ -22,6 +22,8 @@ set :repository, "git@github.com:kulerskim/ib-rails.git"
 set :branch, "master"
 set :git_enable_submodules, 1
 
+load 'deploy/assets'
+
 namespace :deploy do
   task :start, :roles => :app do
     run "touch #{current_path}/tmp/restart.txt"
@@ -41,11 +43,6 @@ namespace :deploy do
     #run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 
-  desc "Precompile assets"
-  task :precompile, :role => :app do
-    run "cd #{release_path}/ && rake assets:precompile"
-  end
 end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
-after "deploy:finalize_update", "deploy:precompile"
